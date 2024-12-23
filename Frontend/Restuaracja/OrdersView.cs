@@ -23,5 +23,10 @@ namespace Restuaracja
             MainMenu menu = new MainMenu();
             this.Controls.Add(menu);
         }
+
+        private void OrdersView_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

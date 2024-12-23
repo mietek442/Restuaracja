@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Restuaracja.Menu;
 
 namespace Restuaracja
 {
@@ -22,6 +23,13 @@ namespace Restuaracja
             this.Controls.Clear();
             MainMenu menu = new MainMenu();
             this.Controls.Add(menu);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Controls.Clear();
+            AddDish addProduct = new AddDish();
+            this.Controls.Add(addProduct);
         }
     }
 }

@@ -60,6 +60,7 @@
             Controls.Add(label1);
             Name = "OrdersView";
             Size = new Size(800, 450);
+            Load += OrdersView_Load;
             ResumeLayout(false);
             PerformLayout();
         }
