@@ -1,13 +1,19 @@
 ﻿using System;
 using System.Drawing;
+using System.Net.Http;
+using System.Reflection.Metadata;
+using System.Text;
 using System.Windows.Forms;
 
 namespace Restuaracja.Menu
 {
     public partial class AddDish : UserControl
     {
+        
+
         public AddDish()
         {
+          
             InitializeComponent();
         }
 
@@ -23,10 +29,11 @@ namespace Restuaracja.Menu
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string filePath = openFileDialog.FileName;
+                pictureBox.Image = Image.FromFile(filePath);
                 using (var originalImage = Image.FromFile(filePath))
                 using (var memoryStream = new System.IO.MemoryStream())
                 {
-                    // Konwertuj obraz do formatu JPEG i zapisz do pamięci
+                    
                     originalImage.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Jpeg);
                     byte[] imageBytes = memoryStream.ToArray();
 
@@ -57,18 +64,46 @@ namespace Restuaracja.Menu
                 }
             }
         }
-        private void button5_Click(object sender, EventArgs e)
+        private async void buttonSendData_ClickAsync(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(uploadedImageId))
             {
-                MessageBox.Show($"Id przesłanego obrazu: {uploadedImageId}");
-                // Wykonaj dalsze operacje
+
+                var data = new
+                {
+                    name = nameTextBox.Text,
+                    shortDescription = shortDescTextBox.Text,
+                    fullDescription = fullDescTextBox.Text,
+                    isAvailable = isAvailableCheckBox.Checked,
+                    price = decimal.Parse(priceTextBox.Text),
+                    discountPrice = decimal.Parse(discountPriceTextBox.Text),
+                    cuisine = cuisineTextBox.Text,
+                    imageId = uploadedImageId
+                };
+                
+                var jsonData = System.Text.Json.JsonSerializer.Serialize(data);
+                var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+                using (var client = new System.Net.Http.HttpClient()) {
+                    var response = await client.PostAsync("https://localhost:5001/api/dishes", content);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show("Danie  Zostało dodane Prawidłowo.");
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Error: {response.StatusCode}");
+                    }
+                }
+               // MessageBox.Show($"Data to send:\n{jsonData}");
+
+              
             }
             else
             {
                 MessageBox.Show("Nie przesłano jeszcze obrazu.");
             }
-            Console.WriteLine();
+
         }
         private void InitializeComponent()
         {
@@ -225,7 +260,7 @@ namespace Restuaracja.Menu
             discountPriceLabel.Name = "discountPriceLabel";
             discountPriceLabel.Size = new Size(101, 15);
             discountPriceLabel.TabIndex = 16;
-            discountPriceLabel.Text = "Cena promocyjna";
+            discountPriceLabel.Text = "Rabat w %";
             // 
             // discountPriceTextBox
             // 
@@ -258,7 +293,7 @@ namespace Restuaracja.Menu
             button2.TabIndex = 20;
             button2.Text = "Dodaj Danie";
             button2.UseVisualStyleBackColor = true;
-            button2.Click += this.button5_Click;
+            button2.Click += this.buttonSendData_ClickAsync;
             // 
             // AddDish
             // 
