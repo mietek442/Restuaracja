@@ -9,11 +9,11 @@ namespace Restuaracja.Menu
 {
     public partial class AddDish : UserControl
     {
-        
+
 
         public AddDish()
         {
-          
+
             InitializeComponent();
         }
 
@@ -33,7 +33,7 @@ namespace Restuaracja.Menu
                 using (var originalImage = Image.FromFile(filePath))
                 using (var memoryStream = new System.IO.MemoryStream())
                 {
-                    
+
                     originalImage.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Jpeg);
                     byte[] imageBytes = memoryStream.ToArray();
 
@@ -42,11 +42,11 @@ namespace Restuaracja.Menu
                     {
                         var fileContent = new System.Net.Http.ByteArrayContent(imageBytes);
                         fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/jpeg");
-                      
+
 
                         formData.Add(fileContent, "request", "image.jpg");
 
-                        var response = client.PostAsync("https://localhost:5001/api/files/pictures", formData).Result;
+                        var response = client.PostAsync("https://localhost:5138/api/files/pictures", formData).Result;
 
                         if (response.IsSuccessStatusCode)
                         {
@@ -80,11 +80,12 @@ namespace Restuaracja.Menu
                     cuisine = cuisineTextBox.Text,
                     imageId = uploadedImageId
                 };
-                
+
                 var jsonData = System.Text.Json.JsonSerializer.Serialize(data);
                 var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
-                using (var client = new System.Net.Http.HttpClient()) {
-                    var response = await client.PostAsync("https://localhost:5001/api/dishes", content);
+                using (var client = new System.Net.Http.HttpClient())
+                {
+                    var response = await client.PostAsync("https://localhost:5138/api/dishes", content);
 
                     if (response.IsSuccessStatusCode)
                     {
@@ -95,9 +96,9 @@ namespace Restuaracja.Menu
                         MessageBox.Show($"Error: {response.StatusCode}");
                     }
                 }
-               // MessageBox.Show($"Data to send:\n{jsonData}");
+                // MessageBox.Show($"Data to send:\n{jsonData}");
 
-              
+
             }
             else
             {
@@ -168,6 +169,7 @@ namespace Restuaracja.Menu
             pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox.TabIndex = 5;
             pictureBox.TabStop = false;
+            pictureBox.Click += pictureBox_Click;
             // 
             // openFileDialog
             // 
@@ -258,7 +260,7 @@ namespace Restuaracja.Menu
             discountPriceLabel.AutoSize = true;
             discountPriceLabel.Location = new Point(382, 324);
             discountPriceLabel.Name = "discountPriceLabel";
-            discountPriceLabel.Size = new Size(101, 15);
+            discountPriceLabel.Size = new Size(62, 15);
             discountPriceLabel.TabIndex = 16;
             discountPriceLabel.Text = "Rabat w %";
             // 
@@ -293,7 +295,7 @@ namespace Restuaracja.Menu
             button2.TabIndex = 20;
             button2.Text = "Dodaj Danie";
             button2.UseVisualStyleBackColor = true;
-            button2.Click += this.buttonSendData_ClickAsync;
+            button2.Click += buttonSendData_ClickAsync;
             // 
             // AddDish
             // 
@@ -320,11 +322,12 @@ namespace Restuaracja.Menu
             Controls.Add(cuisineTextBox);
             Name = "AddDish";
             Size = new Size(800, 600);
+            Load += AddDish_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
-       
+
         private Button button1;
         private Label label1;
         private Button uploadButton;
@@ -346,5 +349,15 @@ namespace Restuaracja.Menu
         private Button button2;
         private TextBox cuisineTextBox;
         private string uploadedImageId;
+
+        private void pictureBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddDish_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

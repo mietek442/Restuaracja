@@ -1,6 +1,7 @@
 ﻿using Api.Domain.Models;
 using Api.Features.Common.Services.UrlHelper;
 using Microsoft.AspNetCore.Mvc.Routing;
+using static System.Net.WebRequestMethods;
 
 namespace Api.Features.Dishes.Queries.GetAllDishes
 {
@@ -10,15 +11,16 @@ namespace Api.Features.Dishes.Queries.GetAllDishes
         {
             return new DishResult
             {
+                Id = dish.Id,
                 Name = dish.Name,
                 ShortDescription = dish.ShortDescription,
                 FullDescription = dish.FullDescription,
                 Cuisine = dish.Cuisine,
                 IsAvailable = dish.IsAvailable,
-                Price = (dish.DiscountPrice > 0) ? dish.Price : null,
-                DiscountPrice = (dish.DiscountPrice > 0) ? dish.DiscountPrice : null,
+                Price = dish.Price,
+                DiscountPrice = (dish.DiscountPrice > 0) ? dish.DiscountPrice : 0,
                 FinalPrice = CalculateFinalPrice(dish),
-                ImgUrl = CreatePictureUrl(dish.ImageId, _urlHelpers),
+                ImgUrl = "https://kwalifikacje.edu.pl/wp-content/uploads/4-3-1024x683.jpg",
             };
         }
 

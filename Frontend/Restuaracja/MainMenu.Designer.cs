@@ -94,6 +94,7 @@
             Controls.Add(flowLayoutPanel1);
             Name = "MainMenu";
             Size = new Size(800, 450);
+            Load += MainMenu_Load;
             flowLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }

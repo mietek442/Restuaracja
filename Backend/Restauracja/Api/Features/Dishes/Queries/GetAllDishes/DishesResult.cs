@@ -4,6 +4,7 @@ namespace Api.Features.Dishes.Queries.GetAllDishes
 {
     public class DishResult
     {
+        public required Guid Id { get; set; }
         public required string Name { get; set; }
         public string ShortDescription { get; set; }
         public string? FullDescription { get; set; }

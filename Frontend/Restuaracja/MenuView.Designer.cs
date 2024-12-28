@@ -18,6 +18,7 @@
         {
             button1 = new Button();
             button2 = new Button();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             SuspendLayout();
             // 
             // button1
@@ -32,22 +33,33 @@
             // 
             // button2
             // 
-            button2.Location = new Point(71, 41);
+            button2.Location = new Point(276, 3);
             button2.Name = "button2";
-            button2.Size = new Size(121, 47);
+            button2.Size = new Size(253, 59);
             button2.TabIndex = 1;
             button2.Text = "Dodaj Danie";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.AutoScroll = true;
+            flowLayoutPanel1.Location = new Point(142, 68);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(538, 342);
+            flowLayoutPanel1.TabIndex = 2;
+            flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
+            // 
             // MenuView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(flowLayoutPanel1);
             Controls.Add(button2);
             Controls.Add(button1);
             Name = "MenuView";
             Size = new Size(800, 450);
+            Load += MenuView_Load;
             ResumeLayout(false);
         }
 
@@ -59,5 +71,6 @@
         }
 
         private Button button2;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }

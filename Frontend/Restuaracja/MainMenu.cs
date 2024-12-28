@@ -44,5 +44,10 @@ namespace Restuaracja
             OrdersView ordersView = new OrdersView();
             this.Controls.Add(ordersView);
         }
+
+        private void MainMenu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
