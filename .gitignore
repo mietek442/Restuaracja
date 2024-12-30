@@ -1,0 +1,6 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Backend/Restauracja/Api/appsettings.json
+/Backend/Restauracja/Api/Features/Dishes/Queries/GetAllDishes/GetAllDishesMapper.cs
