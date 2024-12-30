@@ -5,6 +5,8 @@ namespace Api.Infrastructure.DbContext
     public interface IApplicationContext
     {
         DbSet<Dish> Dishes { get; set; }
+        DbSet<Supply> Supplies { get; set; }
+
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
 }

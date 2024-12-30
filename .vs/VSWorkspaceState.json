@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\Backend",
-    "\\Backend\\Restauracja"
+    "\\Backend\\Restauracja",
+    "\\Backend\\Restauracja\\Api"
   ],
-  "SelectedNode": "\\Backend\\Restauracja\\Resteuracja.sln",
+  "SelectedNode": "\\Frontend",
   "PreviewInSolutionExplorer": false
 }

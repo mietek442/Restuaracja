@@ -9,7 +9,8 @@ namespace Api.Infrastructure.DbContext
     {
 
         public DbSet<Dish> Dishes { get; set; }
-     
+        public DbSet<Supply> Supplies { get; set; }
+
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
 
