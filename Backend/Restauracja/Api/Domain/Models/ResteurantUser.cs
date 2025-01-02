@@ -1,6 +1,6 @@
 ﻿namespace Api.Domain.Models
 {
-    public class User
+    public class ResteurantUser
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

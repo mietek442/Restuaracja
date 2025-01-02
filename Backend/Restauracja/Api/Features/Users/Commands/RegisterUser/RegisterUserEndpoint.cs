@@ -8,7 +8,7 @@
 
     public class RegisterUserEndpoint : EndpointBaseAsync
         .WithRequest<RegisterUserRequest>
-        .WithActionResult<User>
+        .WithActionResult<ResteurantUser>
     {
         private readonly IMediator _mediator;
 
@@ -24,7 +24,7 @@
             OperationId = "Users_Register",
             Tags = new[] { "Users" })
         ]
-        public override async Task<ActionResult<User>> HandleAsync(RegisterUserRequest request, CancellationToken cancellationToken = default)
+        public override async Task<ActionResult<ResteurantUser>> HandleAsync(RegisterUserRequest request, CancellationToken cancellationToken = default)
         {
             return await _mediator.Send(new RegisterUserCommand { UserRequest = request });
         }

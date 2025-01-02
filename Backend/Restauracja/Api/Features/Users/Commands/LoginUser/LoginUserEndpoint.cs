@@ -1,5 +1,6 @@
 ﻿namespace Api.Features.User.Commands.LoginUser
 {
+    using Api.Domain.Models;
     using Api.Features.User.Commands.LogutUser;
     using Ardalis.ApiEndpoints;
     using MediatR;
@@ -10,7 +11,7 @@
 
     public class LoginUserEndpoint : EndpointBaseAsync
         .WithRequest<LoginUserRequest>
-        .WithActionResult<string>
+        .WithActionResult<ResteurantUser>
     {
         private readonly IMediator _mediator;
 
@@ -24,9 +25,9 @@
             Summary = "Logs in a User",
             Description = "Verifies user credentials and logs in the user",
             OperationId = "User_Login",
-            Tags = new[] { "User" })
+            Tags = new[] { "Users" })
         ]
-        public override async Task<ActionResult<string>> HandleAsync(LoginUserRequest request, CancellationToken cancellationToken = default)
+        public override async Task<ActionResult<ResteurantUser>> HandleAsync(LoginUserRequest request, CancellationToken cancellationToken = default)
         {
             return await _mediator.Send(new LoginUserCommand { LoginRequest = request }, cancellationToken);
             

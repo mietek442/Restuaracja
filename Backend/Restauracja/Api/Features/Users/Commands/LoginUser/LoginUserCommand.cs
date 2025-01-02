@@ -1,5 +1,6 @@
 ﻿namespace Api.Features.User.Commands.LoginUser
 {
+    using Api.Domain.Models;
     using Api.Features.User.Commands.LogutUser;
     using Api.Infrastructure.DbContext;
     using MediatR;
@@ -10,12 +11,12 @@
     using System.Threading;
     using System.Threading.Tasks;
 
-    public class LoginUserCommand : IRequest<ActionResult<User>>
+    public class LoginUserCommand : IRequest<ActionResult<ResteurantUser>>
     {
         public LoginUserRequest LoginRequest { get; set; }
     }
 
-    public class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, ActionResult<User>>
+    public class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, ActionResult<ResteurantUser>>
     {
         private readonly IApplicationContext _context;
         private readonly PasswordHasher<object> _passwordHasher;
@@ -26,7 +27,7 @@
             _passwordHasher = new PasswordHasher<object>();
         }
 
-        public async Task<ActionResult<User>> Handle(LoginUserCommand request, CancellationToken cancellationToken)
+        public async Task<ActionResult<ResteurantUser>> Handle(LoginUserCommand request, CancellationToken cancellationToken)
         {
             //szuka usera i zwraca null jak by go sobie nie zwórciło 
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Name == request.LoginRequest.Name, cancellationToken);
@@ -42,8 +43,10 @@
             {
                 return new UnauthorizedResult();
             }
+            // to robi tak że ustawia wszystkim status zalogawany na false
+            await _context.Users.Where(u => u.Id != user.Id).ForEachAsync(u => u.isLogin = false, cancellationToken);
 
-          
+
             user.isLogin = true;
             _context.Users.Update(user);
             await _context.SaveChangesAsync(cancellationToken);

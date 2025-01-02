@@ -7,7 +7,7 @@ namespace Api.Infrastructure.DbContext
         DbSet<Dish> Dishes { get; set; }
         DbSet<Supply> Supplies { get; set; }
         DbSet<Order> Orders { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<ResteurantUser> Users { get; set; }
         DbSet<OrderItem> OrderItems { get; set; }
 
 

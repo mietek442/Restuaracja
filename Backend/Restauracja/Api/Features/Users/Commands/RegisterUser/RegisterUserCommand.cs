@@ -7,12 +7,12 @@
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
 
-    public class RegisterUserCommand : IRequest<ActionResult<User>>
+    public class RegisterUserCommand : IRequest<ActionResult<ResteurantUser>>
     {
         public RegisterUserRequest UserRequest { get; set; }
     }
 
-    public class RegisterUserCommandHandler : IRequestHandler<RegisterUserCommand, ActionResult<User>>
+    public class RegisterUserCommandHandler : IRequestHandler<RegisterUserCommand, ActionResult<ResteurantUser>>
     {
         private readonly IApplicationContext _context;
         private readonly PasswordHasher<object> _passwordHasher;
@@ -22,7 +22,7 @@
             _passwordHasher = new PasswordHasher<object>();
         }
 
-        public async Task<ActionResult<User>> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
+        public async Task<ActionResult<ResteurantUser>> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
         {
             var users = await _context.Users
                .ToListAsync(cancellationToken);
@@ -34,7 +34,7 @@
             }
 
             
-            var user = new User
+            var user = new ResteurantUser
             {
                 Id = Guid.NewGuid(),
                 Name = request.UserRequest.Name,
