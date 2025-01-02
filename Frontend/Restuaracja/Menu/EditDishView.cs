@@ -20,7 +20,7 @@ namespace Restuaracja.Menu
         }
 
         public Dish selDish { get; set; }
-        private string uploadedImageId;
+        
 
 
         private void EditDishView_Load(object sender, EventArgs e)
@@ -58,7 +58,7 @@ namespace Restuaracja.Menu
 
                         formData.Add(fileContent, "request", "image.jpg");
 
-                        var response = client.PostAsync("https://localhost:5138/api/files/pictures", formData).Result;
+                        var response = client.PostAsync("https://localhost:5001/api/files/pictures", formData).Result;
 
                         if (response.IsSuccessStatusCode)
                         {
@@ -87,17 +87,21 @@ namespace Restuaracja.Menu
                     shortDescription = textBox2.Text,
                     fullDescription = textBox3.Text,
                     isAvailable = checkBox1.Checked,
-                    cuisine = textBox4.Text,
                     price = decimal.Parse(textBox5.Text),
-                    discount = decimal.Parse(textBox6.Text),
+                    discountPrice = decimal.Parse(textBox6.Text),
+                    cuisine = textBox4.Text,
                     imageId = uploadedImageId,
                 };
 
                 var jsonData = System.Text.Json.JsonSerializer.Serialize(data);
                 var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
-                using (var client = new System.Net.Http.HttpClient())
+
+                MessageBox.Show($"Data to send:\n{jsonData}");
+
+                using (var client = new HttpClient())
                 {
-                    var response = await client.PutAsync($"http://localhost:5138/api/dishes/{selDish.id}", content);
+                    var url = "https://localhost:5001/api/dishes/"+ selDish.id;
+                    var response = await client.PutAsync(url, content);
 
                     if (response.IsSuccessStatusCode)
                     {
@@ -114,6 +118,7 @@ namespace Restuaracja.Menu
                 MessageBox.Show("Nie przesłano jeszcze obrazu.");
             }
         }
+        private string uploadedImageId;
 
         private void textBox6_TextChanged(object sender, EventArgs e)
         {

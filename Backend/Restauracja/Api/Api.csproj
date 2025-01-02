@@ -33,6 +33,8 @@
 
   <ItemGroup>
     <Folder Include="Features\Common\Services\NewFolder\" />
+    <Folder Include="Features\User\Commands\LoginUser\" />
+    <Folder Include="Features\User\Queries\GetLoginUser\" />
   </ItemGroup>
 
 </Project>
