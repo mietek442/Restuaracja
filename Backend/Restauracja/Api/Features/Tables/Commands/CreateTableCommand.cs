@@ -1,0 +1,34 @@
+﻿using Api.Domain.Models;
+using Api.Features.Tables.Commands;
+using Api.Infrastructure.DbContext;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
+
+public class CreateTableCommand : IRequest<ActionResult<Table>>
+{
+    public CreateTableRequest TableRequest { get; set; }
+}
+
+public class CreateTableCommandHandler : IRequestHandler<CreateTableCommand, ActionResult<Table>>
+{
+    private readonly IApplicationContext _context;
+
+    public CreateTableCommandHandler(IApplicationContext context)
+    {
+        _context = context;
+    }
+
+    public async Task<ActionResult<Table>> Handle(CreateTableCommand request, CancellationToken cancellationToken)
+    {
+        var table = new Table
+        {
+            SeatNumber = request.TableRequest.SeatNumber,
+            Description = request.TableRequest.Description,
+            IsReservate = false
+        };
+
+        _context.Tables.Add(table);
+        await _context.SaveChangesAsync(cancellationToken);
+        return new OkObjectResult(table);
+    }
+}
