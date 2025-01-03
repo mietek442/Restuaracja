@@ -117,6 +117,27 @@ namespace Api.Migrations
                     b.ToTable("OrderItems");
                 });
 
+            modelBuilder.Entity("Api.Domain.Models.RestaurantTable", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<bool>("IsReservate")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("SeatNumber")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tables");
+                });
+
             modelBuilder.Entity("Api.Domain.Models.ResteurantUser", b =>
                 {
                     b.Property<Guid>("Id")

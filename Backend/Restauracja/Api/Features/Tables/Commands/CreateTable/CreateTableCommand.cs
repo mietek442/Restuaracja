@@ -4,12 +4,12 @@ using Api.Infrastructure.DbContext;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-public class CreateTableCommand : IRequest<ActionResult<Table>>
+public class CreateTableCommand : IRequest<ActionResult<RestaurantTable>>
 {
     public CreateTableRequest TableRequest { get; set; }
 }
 
-public class CreateTableCommandHandler : IRequestHandler<CreateTableCommand, ActionResult<Table>>
+public class CreateTableCommandHandler : IRequestHandler<CreateTableCommand, ActionResult<RestaurantTable>>
 {
     private readonly IApplicationContext _context;
 
@@ -18,9 +18,9 @@ public class CreateTableCommandHandler : IRequestHandler<CreateTableCommand, Act
         _context = context;
     }
 
-    public async Task<ActionResult<Table>> Handle(CreateTableCommand request, CancellationToken cancellationToken)
+    public async Task<ActionResult<RestaurantTable>> Handle(CreateTableCommand request, CancellationToken cancellationToken)
     {
-        var table = new Table
+        var table = new RestaurantTable
         {
            
             SeatNumber = request.TableRequest.SeatNumber,

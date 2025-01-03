@@ -7,7 +7,7 @@ using Swashbuckle.AspNetCore.Annotations;
 
 namespace Api.Features.Tables.Commands
 {
-    public class CreateTableEndpoint : EndpointBaseAsync.WithRequest<CreateTableRequest>.WithActionResult<Table>
+    public class CreateTableEndpoint : EndpointBaseAsync.WithRequest<CreateTableRequest>.WithActionResult<RestaurantTable>
     {
         private readonly IMediator _mediator;
 
@@ -22,7 +22,7 @@ namespace Api.Features.Tables.Commands
             Description = "Creates a new table",
             OperationId = "Tables_Create",
             Tags = new[] { "Tables" })]
-        public override async Task<ActionResult<Table>> HandleAsync(CreateTableRequest request, CancellationToken cancellationToken = default)
+        public override async Task<ActionResult<RestaurantTable>> HandleAsync(CreateTableRequest request, CancellationToken cancellationToken = default)
         {
             return await _mediator.Send(new CreateTableCommand { TableRequest = request });
         }
