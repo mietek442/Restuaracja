@@ -15,11 +15,11 @@ namespace Restuaracja
         public MainForm()
         {
             InitializeComponent();
-            MainMenu mainMenu = new MainMenu();
+            LoginView loginView = new LoginView();
 
-            this.Controls.Add(mainMenu);
+            this.Controls.Add(loginView);
 
-            this.ClientSize = mainMenu.Size;
+            this.ClientSize = loginView.Size;
         }
 
         private void MainForm_Load(object sender, EventArgs e)

@@ -34,14 +34,14 @@
 
             if (user == null)
             {
-                return new UnauthorizedResult();
+                return new NotFoundObjectResult("Nie znaleziono użytkownika o podanej nazwie!");
             }
 
             var verficatePassword = _passwordHasher.VerifyHashedPassword(null, user.HashedPassword, request.LoginRequest.Password);
 
             if (verficatePassword != PasswordVerificationResult.Success)
             {
-                return new UnauthorizedResult();
+                return new UnauthorizedObjectResult("Podano nieprawidłowe hasło");
             }
             // to robi tak że ustawia wszystkim status zalogawany na false
             await _context.Users.Where(u => u.Id != user.Id).ForEachAsync(u => u.isLogin = false, cancellationToken);
