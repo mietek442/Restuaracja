@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Restuaracja.Supplies
+namespace Restuaracja.User
 {
-    public partial class AddSupplies : UserControl
+    public partial class UserControl1 : UserControl
     {
-        public AddSupplies()
+        public UserControl1()
         {
             InitializeComponent();
         }
@@ -21,33 +21,39 @@ namespace Restuaracja.Supplies
         {
             var data = new
             {
-                name = nameTextBox.Text,
-                quantity = numericUpDown1.Text,
-                unit = textBox1.Text,
+                name = textBox1.Text,
+                password = textBox2.Text,
             };
 
             var jsonData = System.Text.Json.JsonSerializer.Serialize(data);
             var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
             using (var client = new System.Net.Http.HttpClient())
             {
-                var response = await client.PostAsync("https://localhost:5001/api/supplies", content);
+                var response = await client.PostAsync("https://localhost:5001/api/user/login", content);
 
                 if (response.IsSuccessStatusCode)
                 {
-                    MessageBox.Show("Produkt został dodany prawidłowo.");
+                    MessageBox.Show("Użytkownik został zalogowany");
                 }
                 else
                 {
                     MessageBox.Show($"Error: {response.StatusCode}");
                 }
             }
-        }
 
-        private void button2_Click(object sender, EventArgs e)
+        }
+        private async void button2_Click(object sender, EventArgs e)
         {
             this.Controls.Clear();
-            SuppliesView view = new SuppliesView();
-            this.Controls.Add(view);
+            UserControl2 userControl2 = new UserControl2();
+            this.Controls.Add(userControl2);
         }
+         private async void button3_Click(object sender, EventArgs e)
+        {
+            this.Controls.Clear();
+            MenuView menuView = new MenuView();
+            this.Controls.Add(menuView);
+        }
+
     }
 }

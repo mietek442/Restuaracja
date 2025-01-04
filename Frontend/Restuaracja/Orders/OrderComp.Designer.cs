@@ -1,6 +1,6 @@
-﻿namespace Restuaracja
+﻿namespace Restuaracja.Orders
 {
-    partial class OrdersView
+    partial class OrderComp
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,59 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
+            flowLayoutPanel1 = new FlowLayoutPanel();
             button1 = new Button();
-            label1 = new Label();
-            button2 = new Button();
             SuspendLayout();
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Location = new Point(230, 23);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(420, 409);
+            flowLayoutPanel1.AutoScroll = true;  // Enable scrolling
+            flowLayoutPanel1.MinimumSize = new Size(0, 420);  // Set minimum height
+            flowLayoutPanel1.TabIndex = 0;
             // 
             // button1
             // 
-            button1.Location = new Point(3, 375);
+            button1.Location = new Point(3, 389);
             button1.Name = "button1";
-            button1.Size = new Size(128, 72);
-            button1.TabIndex = 3;
+            button1.Size = new Size(126, 58);
+            button1.TabIndex = 1;
             button1.Text = "Powrót";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 20F);
-            label1.Location = new Point(299, 11);
-            label1.Name = "label1";
-            label1.Size = new Size(219, 37);
-            label1.TabIndex = 2;
-            label1.Text = "Złóż Zamówienia";
-            // 
-            // button2
-            // 
-            button2.Location = new Point(654, 3);
-            button2.Name = "button2";
-            button2.Size = new Size(131, 37);
-            button2.TabIndex = 4;
-            button2.Text = "Lista Zamówień";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
-            // 
-            // OrdersView
+            // OrderComp
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(button2);
             Controls.Add(button1);
-            Controls.Add(label1);
-            Name = "OrdersView";
+            Controls.Add(flowLayoutPanel1);
+            Load += OrderComp_Load;
+            Name = "OrderComp";
+
             Size = new Size(800, 450);
-            Load += OrdersView_Load;
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
+        private FlowLayoutPanel flowLayoutPanel1;
         private Button button1;
-        private Label label1;
-        private Button button2;
     }
 }

@@ -76,7 +76,7 @@ namespace Restuaracja.Menu
                     fullDescription = fullDescTextBox.Text,
                     isAvailable = isAvailableCheckBox.Checked,
                     price = decimal.Parse(priceTextBox.Text),
-                    discountPrice = decimal.Parse(discountPriceTextBox.Text),
+                    discountPrice = decimal.Parse(discountPriceTextBox.Text)/100,
                     cuisine = cuisineTextBox.Text,
                     imageId = uploadedImageId
                 };

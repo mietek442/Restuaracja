@@ -135,7 +135,7 @@ namespace Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Tables");
+                    b.ToTable("RestaurantTable");
                 });
 
             modelBuilder.Entity("Api.Domain.Models.ResteurantUser", b =>

@@ -88,20 +88,7 @@ namespace Api.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Supplies",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    Name = table.Column<string>(type: "text", nullable: false),
-                    Quantity = table.Column<int>(type: "integer", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Supplies", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Tables",
+                name: "RestaurantTable",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -111,7 +98,21 @@ namespace Api.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Tables", x => x.Id);
+                    table.PrimaryKey("PK_RestaurantTable", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Supplies",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    Name = table.Column<string>(type: "text", nullable: false),
+                    Quantity = table.Column<int>(type: "integer", nullable: false),
+                    Unit = table.Column<string>(type: "text", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Supplies", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -332,10 +333,10 @@ namespace Api.Migrations
                 name: "OrderItems");
 
             migrationBuilder.DropTable(
-                name: "Supplies");
+                name: "RestaurantTable");
 
             migrationBuilder.DropTable(
-                name: "Tables");
+                name: "Supplies");
 
             migrationBuilder.DropTable(
                 name: "Users");

@@ -5,7 +5,7 @@ namespace Api.Features.Dishes.Common.Models
 {
     public static class GetByIdDishMapper
     {
-        public static DishByIdResult ToDishResult(this Dish dish, IUrlHelpers urlHelpers)
+        public static DishByIdResult ToDishByIdResult(this Dish dish, IUrlHelpers urlHelpers)
         {
             return new DishByIdResult
             {

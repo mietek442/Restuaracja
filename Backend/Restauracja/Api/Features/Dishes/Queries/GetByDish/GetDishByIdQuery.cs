@@ -30,7 +30,7 @@ namespace Api.Features.Dishes.Queries.GetByIdDish
             {
                 return new NotFoundResult();
             }
-            var dishResult = dish.ToDishResult(_urlHelpers);
+            var dishResult = dish.ToDishByIdResult(_urlHelpers);
 
             return new OkObjectResult(dishResult);
         }

@@ -30,92 +30,21 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             flowLayoutPanel1 = new FlowLayoutPanel();
-            button5 = new Button();
-            button1 = new Button();
-            button3 = new Button();
-            button4 = new Button();
             panel1 = new Panel();
+            button7 = new Button();
             button2 = new Button();
             button6 = new Button();
-            button7 = new Button();
-            flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.Controls.Add(button5);
-            flowLayoutPanel1.Controls.Add(button1);
-            flowLayoutPanel1.Controls.Add(button3);
-            flowLayoutPanel1.Controls.Add(button4);
             flowLayoutPanel1.Location = new Point(372, 169);
             flowLayoutPanel1.Margin = new Padding(4);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(377, 340);
             flowLayoutPanel1.TabIndex = 0;
             flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
-            // 
-            // button5
-            // 
-            button5.FlatAppearance.BorderSize = 0;
-            button5.FlatAppearance.MouseOverBackColor = Color.FromArgb(82, 82, 82);
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Font = new Font("Impact", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button5.ForeColor = Color.DimGray;
-            button5.Location = new Point(0, 0);
-            button5.Margin = new Padding(0);
-            button5.Name = "button5";
-            button5.Size = new Size(377, 81);
-            button5.TabIndex = 1;
-            button5.Text = "Stoliki";
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
-            // 
-            // button1
-            // 
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(82, 82, 82);
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Impact", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.DimGray;
-            button1.Location = new Point(0, 81);
-            button1.Margin = new Padding(0);
-            button1.Name = "button1";
-            button1.Size = new Size(377, 81);
-            button1.TabIndex = 2;
-            button1.Text = "Zaapotrzenie";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            button3.FlatAppearance.BorderSize = 0;
-            button3.FlatAppearance.MouseOverBackColor = Color.FromArgb(82, 82, 82);
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Impact", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.ForeColor = Color.DimGray;
-            button3.Location = new Point(0, 162);
-            button3.Margin = new Padding(0);
-            button3.Name = "button3";
-            button3.Size = new Size(377, 81);
-            button3.TabIndex = 3;
-            button3.Text = "Zasrana Resteuracja";
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            button4.FlatAppearance.BorderSize = 0;
-            button4.FlatAppearance.MouseOverBackColor = Color.FromArgb(82, 82, 82);
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Font = new Font("Impact", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button4.ForeColor = Color.DimGray;
-            button4.Location = new Point(0, 243);
-            button4.Margin = new Padding(0);
-            button4.Name = "button4";
-            button4.Size = new Size(377, 81);
-            button4.TabIndex = 4;
-            button4.Text = "Jesteś Pedałem";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
             // 
             // panel1
             // 
@@ -129,6 +58,20 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1110, 104);
             panel1.TabIndex = 1;
+            // 
+            // button7
+            // 
+            button7.AccessibleRole = AccessibleRole.ButtonMenu;
+            button7.FlatAppearance.BorderSize = 0;
+            button7.FlatAppearance.MouseOverBackColor = Color.Red;
+            button7.FlatStyle = FlatStyle.Flat;
+            button7.Image = (Image)resources.GetObject("button7.Image");
+            button7.Location = new Point(789, 0);
+            button7.Margin = new Padding(0);
+            button7.Name = "button7";
+            button7.Size = new Size(93, 81);
+            button7.TabIndex = 3;
+            button7.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
@@ -160,23 +103,9 @@
             button6.UseVisualStyleBackColor = true;
             button6.Click += button6_Click;
             // 
-            // button7
-            // 
-            button7.AccessibleRole = AccessibleRole.ButtonMenu;
-            button7.FlatAppearance.BorderSize = 0;
-            button7.FlatAppearance.MouseOverBackColor = Color.Red;
-            button7.FlatStyle = FlatStyle.Flat;
-            button7.Image = (Image)resources.GetObject("button7.Image");
-            button7.Location = new Point(789, 0);
-            button7.Margin = new Padding(0);
-            button7.Name = "button7";
-            button7.Size = new Size(93, 81);
-            button7.TabIndex = 3;
-            button7.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(11F, 24F);
+            AutoScaleDimensions = new SizeF(9F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(32, 32, 32);
             ClientSize = new Size(1110, 757);
@@ -190,7 +119,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             Load += Form1_Load;
-            flowLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -200,10 +128,6 @@
         private FlowLayoutPanel flowLayoutPanel1;
         private Panel panel1;
         private Button button2;
-        private Button button5;
-        private Button button1;
-        private Button button3;
-        private Button button4;
         private Button button6;
         private Button button7;
     }

@@ -22,14 +22,15 @@ namespace Api.Features.Orders.Queries.GetOrders
         {
 
 
-            var orders = await _context.Orders.
-                Include(order => order.OrderItems) // to ten pobieramy sobie orderItemsy też 
+            var orders = await _context.Orders
+            .Include(order => order.OrderItems)
+            .ThenInclude(orderItem => orderItem.Dish)
                 .ToListAsync(cancellationToken);
 
 
-       
 
-            
+
+
             if (orders == null || orders.Count == 0)
             {
                 return new NotFoundResult();

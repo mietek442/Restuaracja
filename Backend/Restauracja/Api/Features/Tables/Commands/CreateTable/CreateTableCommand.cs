@@ -28,7 +28,7 @@ public class CreateTableCommandHandler : IRequestHandler<CreateTableCommand, Act
             IsReservate = false
         };
 
-        _context.Tables.Add(table);
+        _context.RestaurantTable.Add(table);
         await _context.SaveChangesAsync(cancellationToken);
         return new OkObjectResult(table);
     }

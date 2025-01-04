@@ -33,7 +33,11 @@
             button2 = new Button();
             button3 = new Button();
             button4 = new Button();
+            flowLayoutPanel2 = new FlowLayoutPanel();
+            button5 = new Button();
+            button6 = new Button();
             flowLayoutPanel1.SuspendLayout();
+            flowLayoutPanel2.SuspendLayout();
             SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -87,15 +91,47 @@
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
             // 
+            // flowLayoutPanel2
+            // 
+            flowLayoutPanel2.Controls.Add(button5);
+            flowLayoutPanel2.Controls.Add(button6);
+            flowLayoutPanel2.Location = new Point(443, 0);
+            flowLayoutPanel2.Name = "flowLayoutPanel2";
+            flowLayoutPanel2.Size = new Size(350, 50);
+            flowLayoutPanel2.TabIndex = 1;
+            // 
+            // button5
+            // 
+            button5.Location = new Point(3, 3);
+            button5.Name = "button5";
+            button5.Size = new Size(160, 40);
+            button5.TabIndex = 0;
+            button5.Text = "Zaloguj";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
+            // button6
+            // 
+            button6.Location = new Point(169, 3);
+            button6.Name = "button6";
+            button6.Size = new Size(160, 40);
+            button6.TabIndex = 1;
+            button6.Text = "Wyloguj";
+            button6.UseVisualStyleBackColor = true;
+            button6.Visible = false;
+            button6.Click += button6_Click;
+            // 
             // MainMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(flowLayoutPanel2);
             Controls.Add(flowLayoutPanel1);
             Name = "MainMenu";
             Size = new Size(800, 450);
             Load += MainMenu_Load;
             flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -106,5 +142,8 @@
         private Button button2;
         private Button button3;
         private Button button4;
+        private FlowLayoutPanel flowLayoutPanel2;
+        private Button button5;
+        private Button button6;
     }
 }

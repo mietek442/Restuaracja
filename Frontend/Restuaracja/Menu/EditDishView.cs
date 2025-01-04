@@ -88,7 +88,7 @@ namespace Restuaracja.Menu
                     fullDescription = textBox3.Text,
                     isAvailable = checkBox1.Checked,
                     price = decimal.Parse(textBox5.Text),
-                    discountPrice = decimal.Parse(textBox6.Text),
+                    discountPrice = decimal.Parse(textBox6.Text)/100,
                     cuisine = textBox4.Text,
                     imageId = uploadedImageId,
                 };

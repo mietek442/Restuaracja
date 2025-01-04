@@ -1,10 +1,14 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using Restuaracja.User;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -45,9 +49,71 @@ namespace Restuaracja
             this.Controls.Add(ordersView);
         }
 
-        private void MainMenu_Load(object sender, EventArgs e)
+        private async void MainMenu_Load(object sender, EventArgs e)
+        {
+            using (var client = new HttpClient())
+            {
+                var response = await client.GetAsync("https://localhost:5001/api/user/login");
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    var user = JsonSerializer.Deserialize<ResteurantUser>(content);
+
+                    if (user.isAdmin)
+                    {
+                        button5.Text = user.name + " " + " Admin";
+                        button6.Visible = true;
+                    }
+                    else
+                    {
+                        button6.Visible = true;
+                        button5.Text = user.name + " " + " User";
+                    }
+                    MessageBox.Show("Zalogowano");
+                }
+                else
+                {
+                    button6.Visible = false;
+                    button5.Text = "Zaloguj";
+                    MessageBox.Show($"Error: {response.StatusCode}");
+                }
+            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Controls.Clear();
+            UserControl1 userControl1 = new UserControl1();
+            this.Controls.Add(userControl1);
+        }
+
+        private async void button6_Click(object sender, EventArgs e)
+        {
+            using (var client = new HttpClient())
+            {
+                // pusty musi być content
+                var content = new StringContent(string.Empty);
+                var response = await client.PostAsync("https://localhost:5001/api/user/logout", content);
+                if (response.IsSuccessStatusCode)
+                {
+                    
+                    MessageBox.Show("Pomyślnie Wylogowano");
+                }
+                
+            }
+        }
+    }
+    public class ResteurantUser
+    {
+        public Guid id { get; set; }
+        public string name { get; set; }
+        public string hashedPassword { get; set; }
+        public bool isAdmin { get; set; }
+        public bool isLogin { get; set; }
     }
 }

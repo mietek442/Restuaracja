@@ -42,7 +42,7 @@ namespace Restuaracja.Supplies
             var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
             using (var client = new System.Net.Http.HttpClient())
             {
-                var response = await client.PutAsync($"http://localhost:5138/api/supplies/{SupplyEdit.id}", content);
+                var response = await client.PutAsync($"https://localhost:5001/api/supplies/{SupplyEdit.id}", content);
 
                 if (response.IsSuccessStatusCode)
                 {

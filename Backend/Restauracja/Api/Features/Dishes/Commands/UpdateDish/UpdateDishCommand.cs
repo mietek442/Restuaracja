@@ -44,7 +44,7 @@ namespace Api.Features.Dishes.Commands.UpdateDish
             await _context.SaveChangesAsync(cancellationToken);
 
             // Zwracanie DishByIdResult
-            var dishResult = dish.ToDishResult(_urlHelpers);
+            var dishResult = dish.ToDishByIdResult(_urlHelpers);
             return new OkObjectResult(dishResult);
         }
     }

@@ -39,7 +39,7 @@ namespace Restuaracja.Supplies
         {
             using (var client = new HttpClient())
             {
-                var response = await client.DeleteAsync($"http://localhost:5138/api/supplies/{SupplyData.id}");
+                var response = await client.DeleteAsync($"https://localhost:5001/api/supplies/{SupplyData.id}");
                 if (response.IsSuccessStatusCode)
                 {
                     MessageBox.Show("Danie zostało usunięte.");

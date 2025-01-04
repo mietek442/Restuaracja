@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Restuaracja.Orders;
+using Restuaracja.Supplies;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,6 +29,13 @@ namespace Restuaracja
         private void OrdersView_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Controls.Clear();
+            OrderComp orderComp = new OrderComp();
+            this.Controls.Add(orderComp);
         }
     }
 }

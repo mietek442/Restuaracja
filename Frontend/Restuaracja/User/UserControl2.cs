@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Restuaracja.Supplies
+namespace Restuaracja.User
 {
-    public partial class AddSupplies : UserControl
+    public partial class UserControl2 : UserControl
     {
-        public AddSupplies()
+        public UserControl2()
         {
             InitializeComponent();
         }
@@ -21,20 +21,19 @@ namespace Restuaracja.Supplies
         {
             var data = new
             {
-                name = nameTextBox.Text,
-                quantity = numericUpDown1.Text,
-                unit = textBox1.Text,
+                name = textBox1.Text,
+                hashedPassword = textBox2.Text,
             };
 
             var jsonData = System.Text.Json.JsonSerializer.Serialize(data);
             var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
             using (var client = new System.Net.Http.HttpClient())
             {
-                var response = await client.PostAsync("https://localhost:5001/api/supplies", content);
+                var response = await client.PostAsync("https://localhost:5001/api/users/register", content);
 
                 if (response.IsSuccessStatusCode)
                 {
-                    MessageBox.Show("Produkt został dodany prawidłowo.");
+                    MessageBox.Show("Użytkownik został Zarejstrowany");
                 }
                 else
                 {
@@ -46,8 +45,15 @@ namespace Restuaracja.Supplies
         private void button2_Click(object sender, EventArgs e)
         {
             this.Controls.Clear();
-            SuppliesView view = new SuppliesView();
-            this.Controls.Add(view);
+            UserControl1 userControl1 = new UserControl1();
+            this.Controls.Add(userControl1);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Controls.Clear();
+            MainMenu mainMenu = new MainMenu();
+            this.Controls.Add(mainMenu);
         }
     }
 }

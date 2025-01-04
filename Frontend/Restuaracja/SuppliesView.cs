@@ -32,7 +32,7 @@ namespace Restuaracja
         {
             using (var client = new System.Net.Http.HttpClient())
             {
-                var response = await client.GetAsync("http://localhost:5138/api/supplies");
+                var response = await client.GetAsync("https://localhost:5001/api/supplies");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
