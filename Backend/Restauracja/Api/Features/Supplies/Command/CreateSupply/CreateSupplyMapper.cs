@@ -9,7 +9,8 @@ namespace Api.Features.Supplies.Command.CreateSupply
             return new Supply
             {
                 Name = supplyDto.Name,
-                Quantity = supplyDto.Quantity
+                Quantity = supplyDto.Quantity,
+                Unit = supplyDto.Unit
             };
         }
     }

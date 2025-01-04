@@ -3,8 +3,12 @@
     "",
     "\\Backend",
     "\\Backend\\Restauracja",
-    "\\Backend\\Restauracja\\Api"
+    "\\Backend\\Restauracja\\Api",
+    "\\Backend\\Restauracja\\Api\\Features",
+    "\\Backend\\Restauracja\\Api\\Features\\Dishes",
+    "\\Backend\\Restauracja\\Api\\Features\\Dishes\\Queries",
+    "\\Backend\\Restauracja\\Api\\Features\\Dishes\\Queries\\GetAllDishes"
   ],
-  "SelectedNode": "\\Frontend",
+  "SelectedNode": "\\Backend\\Restauracja\\Api\\Features\\Dishes\\Queries\\GetAllDishes\\GetDishesQuery.cs",
   "PreviewInSolutionExplorer": false
 }

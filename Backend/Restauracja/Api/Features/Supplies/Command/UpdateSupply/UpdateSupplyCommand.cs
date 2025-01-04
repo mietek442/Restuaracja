@@ -28,6 +28,8 @@ namespace Api.Features.Supplies.Command.UpdateSupply
             }
             res.Name = request.supplyModel.Name;
             res.Quantity= request.supplyModel.Quantity;
+            res.Unit= request.supplyModel.Unit;
+
 
             int result = await _context.SaveChangesAsync(cancellationToken);
             if (result == 0) {

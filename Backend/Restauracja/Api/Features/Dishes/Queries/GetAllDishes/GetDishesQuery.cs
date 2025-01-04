@@ -1,5 +1,6 @@
 ﻿using Api.Features.Common.Services.Storage;
 using Api.Features.Common.Services.UrlHelper;
+using Api.Features.Dishes.Common.Models;
 using Api.Features.Dishes.Queries.GetAllDishes;
 using Api.Infrastructure.DbContext;
 using MediatR;

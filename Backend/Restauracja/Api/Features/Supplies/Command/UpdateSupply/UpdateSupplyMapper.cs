@@ -8,7 +8,9 @@ namespace Api.Features.Supplies.Command.UpdateSupply
             return new Supply
             {
                 Name = model.Name,
-                Quantity = model.Quantity
+                Quantity = model.Quantity,
+                Unit = model.Unit
+
             };
         }
     }
