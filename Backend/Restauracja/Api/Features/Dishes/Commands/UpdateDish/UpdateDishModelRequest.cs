@@ -11,7 +11,6 @@
         public float Price { get; set; }
         public float? DiscountPrice { get; set; }
         public Guid? ImageId { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
+
     }
 }

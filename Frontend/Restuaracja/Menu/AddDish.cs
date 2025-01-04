@@ -46,7 +46,7 @@ namespace Restuaracja.Menu
 
                         formData.Add(fileContent, "request", "image.jpg");
 
-                        var response = client.PostAsync("https://localhost:5138/api/files/pictures", formData).Result;
+                        var response = client.PostAsync("https://localhost:5001/api/files/pictures", formData).Result;
 
                         if (response.IsSuccessStatusCode)
                         {
@@ -85,7 +85,7 @@ namespace Restuaracja.Menu
                 var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
                 using (var client = new System.Net.Http.HttpClient())
                 {
-                    var response = await client.PostAsync("https://localhost:5138/api/dishes", content);
+                    var response = await client.PostAsync("https://localhost:5001/api/dishes", content);
 
                     if (response.IsSuccessStatusCode)
                     {
