@@ -16,11 +16,11 @@ namespace Api.Features.Supplies.Query.GetSupplyById
         }
         [HttpGet("api/supplies/{id}")]
         [SwaggerOperation(
-Summary = "Get supply by id",
-Description = "Get supply by id",
-OperationId = "Supplies_GetId",
-Tags = new[] { "Supplies" })
-]
+        Summary = "Get supply by id",
+        Description = "Get supply by id",
+        OperationId = "Supplies_GetId",
+        Tags = new[] { "Supplies" })]
+
 
         public override Task<ActionResult<Supply>> HandleAsync([FromRoute] Guid id, CancellationToken cancellationToken = default)
         {

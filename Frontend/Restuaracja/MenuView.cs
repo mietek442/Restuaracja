@@ -42,7 +42,7 @@ namespace Restuaracja
         {
             using (var client = new System.Net.Http.HttpClient())
             {
-                var response = await client.GetAsync("http://localhost:5138/api/dishes");
+                var response = await client.GetAsync("https://localhost:5001/api/dishes");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
