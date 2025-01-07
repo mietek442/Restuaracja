@@ -8,5 +8,6 @@
         // jak coś to jest taki opis że stolik przy Oknie, Stolik dla Palacych, Stolik dla Meneli itd.
         public string Description { get; set; }
         public bool HasReservation { get; set; }
+        public List<TableReservation> TableReservations { get; set; } = new List<TableReservation>();
     }
 }

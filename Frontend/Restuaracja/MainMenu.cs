@@ -70,7 +70,6 @@ namespace Restuaracja
                         button6.Visible = true;
                         button5.Text = user.name + " " + " User";
                     }
-                    MessageBox.Show("Zalogowano");
                 }
                 else
                 {
