@@ -11,6 +11,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Restuaracja.GlobalConfig;
 
 namespace Restuaracja
 {
@@ -53,7 +54,7 @@ namespace Restuaracja
         {
             using (var client = new HttpClient())
             {
-                var response = await client.GetAsync("https://localhost:5001/api/user/login");
+                var response = await client.GetAsync($"{ApiBaseUrl}/user/login");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
@@ -98,7 +99,7 @@ namespace Restuaracja
             {
                 // pusty musi być content
                 var content = new StringContent(string.Empty);
-                var response = await client.PostAsync("https://localhost:5001/api/user/logout", content);
+                var response = await client.PostAsync($"{ApiBaseUrl}/user/logout", content);
                 if (response.IsSuccessStatusCode)
                 {
                     

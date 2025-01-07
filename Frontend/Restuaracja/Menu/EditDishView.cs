@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Restuaracja.MenuView;
+using static Restuaracja.GlobalConfig;
 
 namespace Restuaracja.Menu
 {
@@ -58,7 +59,7 @@ namespace Restuaracja.Menu
 
                         formData.Add(fileContent, "request", "image.jpg");
 
-                        var response = client.PostAsync("https://localhost:5001/api/files/pictures", formData).Result;
+                        var response = client.PostAsync($"{ApiBaseUrl}/files/pictures", formData).Result;
 
                         if (response.IsSuccessStatusCode)
                         {
@@ -100,7 +101,7 @@ namespace Restuaracja.Menu
 
                 using (var client = new HttpClient())
                 {
-                    var url = "https://localhost:5001/api/dishes/"+ selDish.id;
+                    var url = $"{ApiBaseUrl}/dishes/"+ selDish.id;
                     var response = await client.PutAsync(url, content);
 
                     if (response.IsSuccessStatusCode)

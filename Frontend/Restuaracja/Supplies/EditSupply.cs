@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static Restuaracja.GlobalConfig;
 
 namespace Restuaracja.Supplies
 {
@@ -42,7 +43,7 @@ namespace Restuaracja.Supplies
             var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
             using (var client = new System.Net.Http.HttpClient())
             {
-                var response = await client.PutAsync($"https://localhost:5001/api/supplies/{SupplyEdit.id}", content);
+                var response = await client.PutAsync($"{ApiBaseUrl}/supplies/{SupplyEdit.id}", content);
 
                 if (response.IsSuccessStatusCode)
                 {

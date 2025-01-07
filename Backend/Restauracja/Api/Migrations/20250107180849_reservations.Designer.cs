@@ -3,6 +3,7 @@ using System;
 using Api.Infrastructure.DbContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Api.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20250107180849_reservations")]
+    partial class reservations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -208,8 +211,6 @@ namespace Api.Migrations
                         .HasColumnType("uuid");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("TableId");
 
                     b.ToTable("TableReservations");
                 });
@@ -425,17 +426,6 @@ namespace Api.Migrations
                         .IsRequired();
 
                     b.Navigation("Dish");
-                });
-
-            modelBuilder.Entity("Api.Domain.Models.TableReservation", b =>
-                {
-                    b.HasOne("Api.Domain.Models.RestaurantTable", "Table")
-                        .WithMany()
-                        .HasForeignKey("TableId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Table");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

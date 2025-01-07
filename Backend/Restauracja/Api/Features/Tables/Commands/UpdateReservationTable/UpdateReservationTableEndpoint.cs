@@ -16,8 +16,8 @@ namespace Api.Features.Tables.Commands.UpdateReservationTable
         }
         [HttpPut("api/tables/reservate")]
         [SwaggerOperation(
-            Summary = "Update a Reservation statustable",
-            Description = "Update a Reservation statustable",
+            Summary = "Update a Reservation status",
+            Description = "Update a Reservation status",
             OperationId = "Tables_Reservation_Update",
             Tags = new[] { "Tables" })]
         public override async Task<ActionResult<RestaurantTable>> HandleAsync(UpdateReservationTableRequest request, CancellationToken cancellationToken = default)

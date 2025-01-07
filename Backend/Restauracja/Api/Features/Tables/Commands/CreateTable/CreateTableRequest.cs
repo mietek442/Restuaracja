@@ -2,8 +2,8 @@
 {
     public class CreateTableRequest
     {
-        public int SeatNumber { get; set; }
-
+        public int SeatCount { get; set; }
         public string Description { get; set; }
+        public int TableNumber { get; set; }
     }
 }

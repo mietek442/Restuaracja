@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Restuaracja.MenuView;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using static Restuaracja.GlobalConfig;
 
 namespace Restuaracja
 {
@@ -40,7 +41,7 @@ namespace Restuaracja
             {
                 var jsonData = System.Text.Json.JsonSerializer.Serialize(user);
                 var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
-                var response = await client.PostAsync("http://localhost:5138/api/user/login",content);
+                var response = await client.PostAsync($"{ApiBaseUrl}/user/login",content);
                 if (response.IsSuccessStatusCode)
                 {
                     this.Controls.Clear();

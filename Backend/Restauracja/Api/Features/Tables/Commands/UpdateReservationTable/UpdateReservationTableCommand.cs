@@ -22,12 +22,12 @@ namespace Api.Features.Tables.Commands.UpdateReservationTable
         public async Task<ActionResult<RestaurantTable>> Handle(UpdateReservationTableCommand request, CancellationToken cancellationToken)
         {
        
-            var table = await _context.RestaurantTable.FindAsync(request.Id, cancellationToken);
+            var table = await _context.RestaurantTables.FindAsync(request.Id, cancellationToken);
             if (table == null)
             {
                 return new NotFoundResult();
             }
-            table.IsReservate = request.UpdateReservationTableRequest.IsReservate;
+            table.HasReservation = request.UpdateReservationTableRequest.HasReservation;
 
            await _context.SaveChangesAsync(cancellationToken);
 

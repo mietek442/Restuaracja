@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Restuaracja
 {
-    public partial class ReservationsView :  UserControl
+    public partial class ReservationsView : UserControl
     {
         public ReservationsView()
         {
@@ -27,6 +27,11 @@ namespace Restuaracja
             this.Controls.Clear();
             MainMenu mainMenu = new MainMenu();
             this.Controls.Add(mainMenu);
+        }
+
+        private void ReservationsView_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

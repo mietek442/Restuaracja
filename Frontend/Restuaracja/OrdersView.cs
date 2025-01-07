@@ -11,6 +11,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Restuaracja.GlobalConfig;
 
 namespace Restuaracja
 {
@@ -32,7 +33,7 @@ namespace Restuaracja
         {
             using (var client = new System.Net.Http.HttpClient())
             {
-                var response = await client.GetAsync("https://localhost:5001/api/dishes");
+                var response = await client.GetAsync($"{ApiBaseUrl}/dishes");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
@@ -60,6 +61,11 @@ namespace Restuaracja
             this.Controls.Clear();
             OrderComp orderComp = new OrderComp();
             this.Controls.Add(orderComp);
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
     public class DishInOrder

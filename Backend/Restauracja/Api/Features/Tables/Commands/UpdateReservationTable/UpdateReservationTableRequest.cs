@@ -6,6 +6,6 @@ namespace Api.Features.Tables.Commands.UpdateReservationTable
     public class UpdateReservationTableRequest
     {
         [FromQuery(Name = "id")] public Guid Id { get; set; }
-        [FromQuery] public bool IsReservate { get; set; }
+        [FromQuery] public bool HasReservation { get; set; }
     }
 }
