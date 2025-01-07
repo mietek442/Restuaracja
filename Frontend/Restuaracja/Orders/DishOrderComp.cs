@@ -37,7 +37,8 @@ namespace Restuaracja.Orders
             get { return pictureBox1.ImageLocation; }
             set { pictureBox1.ImageLocation = value; }
         }
-
+        public NumericUpDown NumericUpDown1 { get { return numericUpDown1; } }
+        public CheckBox CheckBox1 { get { return checkBox1; } }
         public DishInOrder DishData { get; set; }
 
         private void DishOrderComp_Load(object sender, EventArgs e)

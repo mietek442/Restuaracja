@@ -34,12 +34,14 @@
             // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.Location = new Point(230, 23);
+            flowLayoutPanel1.AutoScroll = true;
+            flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
+            flowLayoutPanel1.Location = new Point(150, 23);
+            flowLayoutPanel1.MinimumSize = new Size(0, 420);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(420, 409);
-            flowLayoutPanel1.AutoScroll = true;  // Enable scrolling
-            flowLayoutPanel1.MinimumSize = new Size(0, 420);  // Set minimum height
+            flowLayoutPanel1.Size = new Size(551, 420);
             flowLayoutPanel1.TabIndex = 0;
+            flowLayoutPanel1.WrapContents = false;
             // 
             // button1
             // 
@@ -57,10 +59,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(button1);
             Controls.Add(flowLayoutPanel1);
-            Load += OrderComp_Load;
             Name = "OrderComp";
-
             Size = new Size(800, 450);
+            Load += OrderComp_Load;
             ResumeLayout(false);
         }
 

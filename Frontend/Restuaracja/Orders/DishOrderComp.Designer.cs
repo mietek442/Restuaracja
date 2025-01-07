@@ -33,28 +33,25 @@
             label2 = new Label();
             label3 = new Label();
             pictureBox1 = new PictureBox();
+            numericUpDown1 = new NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
             // checkBox1
             // 
-            checkBox1.AutoSize = false;
+            checkBox1.FlatAppearance.BorderColor = Color.FromArgb(100, 100, 100);
+            checkBox1.FlatAppearance.CheckedBackColor = Color.FromArgb(200, 200, 200);
+            checkBox1.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 0, 0);
+            checkBox1.FlatStyle = FlatStyle.Flat;
             checkBox1.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
             checkBox1.ForeColor = SystemColors.Desktop;
             checkBox1.Location = new Point(13, 63);
             checkBox1.Name = "checkBox1";
-            
             checkBox1.Size = new Size(150, 50);
             checkBox1.TabIndex = 0;
             checkBox1.Text = "Dodaj Produkt";
             checkBox1.UseVisualStyleBackColor = true;
-            checkBox1.FlatStyle = FlatStyle.Flat;
-            checkBox1.FlatAppearance.BorderSize = 1;
-            checkBox1.FlatAppearance.CheckedBackColor = Color.FromArgb(255, 255, 250);
-            checkBox1.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 0, 0);
-            checkBox1.FlatAppearance.BorderColor = Color.FromArgb(100, 100, 100);
-            checkBox1.FlatAppearance.CheckedBackColor = Color.FromArgb(200, 200, 200);
-
             // 
             // label1
             // 
@@ -97,11 +94,24 @@
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
             // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Location = new Point(134, 79);
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(42, 23);
+            numericUpDown1.TabIndex = 5;
+            numericUpDown1.Font = new Font("Arial", 9.75F, FontStyle.Bold);
+            numericUpDown1.Minimum = 1;
+            numericUpDown1.Maximum = 20;
+            numericUpDown1.Value = 1;
+
+            // 
             // DishOrderComp
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(247, 247, 247);
+            Controls.Add(numericUpDown1);
             Controls.Add(pictureBox1);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -111,6 +121,7 @@
             Size = new Size(620, 150);
             Load += DishOrderComp_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -122,5 +133,6 @@
         private Label label2;
         private Label label3;
         private PictureBox pictureBox1;
+        private NumericUpDown numericUpDown1;
     }
 }

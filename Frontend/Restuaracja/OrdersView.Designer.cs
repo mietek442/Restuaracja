@@ -32,6 +32,7 @@
             label1 = new Label();
             button2 = new Button();
             flowLayoutPanel1 = new FlowLayoutPanel();
+            Sprawdz = new Button();
             SuspendLayout();
             // 
             // button1
@@ -49,7 +50,6 @@
             // 
             // label1
             // 
-            label1.AutoSize = false;
             label1.Font = new Font("Segoe UI", 20F);
             label1.Location = new Point(299, 11);
             label1.Name = "label1";
@@ -78,11 +78,22 @@
             flowLayoutPanel1.Size = new Size(623, 395);
             flowLayoutPanel1.TabIndex = 5;
             // 
+            // Sprawdz
+            // 
+            Sprawdz.Location = new Point(713, 231);
+            Sprawdz.Name = "Sprawdz";
+            Sprawdz.Size = new Size(75, 23);
+            Sprawdz.TabIndex = 6;
+            Sprawdz.Text = "Zamow";
+            Sprawdz.UseVisualStyleBackColor = true;
+            Sprawdz.Click += Sprawdz_Click;
+            // 
             // OrdersView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(217, 217, 217);
+            Controls.Add(Sprawdz);
             Controls.Add(button1);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(button2);
@@ -91,7 +102,6 @@
             Size = new Size(800, 450);
             Load += OrdersView_Load;
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -100,5 +110,6 @@
         private Label label1;
         private Button button2;
         private FlowLayoutPanel flowLayoutPanel1;
+        private Button Sprawdz;
     }
 }

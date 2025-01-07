@@ -27,21 +27,23 @@ namespace Restuaracja.Orders
         {
         }
 
+      
+
         private void button1_Click_1(object sender, EventArgs e)
         {
             flowLayoutPanel1.Controls.Clear();
             MessageBox.Show("Order Items");
             foreach (var orderItem in OrderData.orderItems)
             {
-               
                 var orderItemView = new OrderItemView
                 {
                     OrderItemData = orderItem
                 };
-
                 flowLayoutPanel1.Controls.Add(orderItemView);
+                AdjustLayout();
             }
         }
+
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {

@@ -8,7 +8,7 @@
 
     public class CreateOrderEndpoint : EndpointBaseAsync
         .WithRequest<CreateOrderRequest>
-        .WithActionResult<Order>
+        .WithActionResult<CreateOrderResult>
     {
         private readonly IMediator _mediator;
 
@@ -24,7 +24,7 @@
             OperationId = "Orders_Create",
             Tags = new[] { "Orders" })
         ]
-        public override async Task<ActionResult<Order>> HandleAsync(CreateOrderRequest request, CancellationToken cancellationToken = default)
+        public override async Task<ActionResult<CreateOrderResult>> HandleAsync(CreateOrderRequest request, CancellationToken cancellationToken = default)
         {
            return await _mediator.Send(new CreateOrderCommand { OrderRequest = request });
            

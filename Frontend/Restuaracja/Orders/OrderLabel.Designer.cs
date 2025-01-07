@@ -36,7 +36,7 @@
             panel1.Controls.Add(labelStatus);
             panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(412, 70);
+            panel1.Size = new Size(473, 70);
             panel1.TabIndex = 0;
             // 
             // OrderPrice
@@ -88,10 +88,10 @@
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.AutoSize = true;
-            flowLayoutPanel1.Location = new Point(6, 79);
+            flowLayoutPanel1.FlowDirection = FlowDirection.RightToLeft;
+            flowLayoutPanel1.Location = new Point(16, 79);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(409, 305);
+            flowLayoutPanel1.Size = new Size(437, 15);
             flowLayoutPanel1.TabIndex = 1;
             // 
             // OrderLabel
@@ -102,12 +102,11 @@
             Controls.Add(flowLayoutPanel1);
             Controls.Add(panel1);
             Name = "OrderLabel";
-            Size = new Size(419, 460);
+            Size = new Size(479, 97);
             Load += OrderLabel_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -119,5 +118,23 @@
         private Label labelCreatedAt;
         private Label labelUpdatedAt;
         private FlowLayoutPanel flowLayoutPanel1;
+
+        
+
+        private void AdjustLayout()
+        {
+            if (flowLayoutPanel1.Controls.Count == 0)
+            {
+                Size = new Size(419, 412);
+                flowLayoutPanel1.Height = 0;
+            }
+            else
+            {
+                Size = new Size(419, Math.Min(900, flowLayoutPanel1.PreferredSize.Height + 100));
+                flowLayoutPanel1.Height = Math.Min(900, flowLayoutPanel1.PreferredSize.Height);
+            }
+        }
+
+        
     }
 }
