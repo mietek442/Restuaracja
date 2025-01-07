@@ -31,6 +31,10 @@ namespace Api.Features.TableReservations.Commands.EditReservation
             {
                 return new NotFoundObjectResult("Nie znaleziono podanej rezerwacji!");
             }
+            if (checkDates(reservation.StartTime, reservation.EndTime))
+            {
+                return new ConflictObjectResult("Data rezerwacji nakłada się na już istniejącą!");
+            }
 
             reservation.ClientName = request.reservation.ClientName;
             reservation.TableId = request.reservation.TableId;
@@ -41,6 +45,18 @@ namespace Api.Features.TableReservations.Commands.EditReservation
 
 
             return new OkObjectResult(reservation);
+        }
+        private bool checkDates(DateTime start, DateTime end)
+        {
+            var reservations = _context.TableReservations.AsQueryable();
+            foreach (var res in reservations)
+            {
+                if (start < res.EndTime && end > res.StartTime)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
 

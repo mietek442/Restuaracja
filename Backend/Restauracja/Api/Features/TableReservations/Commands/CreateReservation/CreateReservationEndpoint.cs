@@ -23,7 +23,11 @@ namespace Api.Features.TableReservations.Commands.CreateReservation
        ]
         public override async Task<ActionResult<TableReservation>> HandleAsync(ReservationRequest request, CancellationToken cancellationToken = default)
         {
-          return await _mediator.Send(new CreateReservationCommand { reservation = request});
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState); // Zwraca błędy walidacji
+            }
+            return await _mediator.Send(new CreateReservationCommand { reservation = request});
         }
     }
 }
