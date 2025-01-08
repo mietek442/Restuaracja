@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Restuaracja.GlobalConfig;
 
 namespace Restuaracja.Supplies
 {
@@ -39,7 +40,7 @@ namespace Restuaracja.Supplies
         {
             using (var client = new HttpClient())
             {
-                var response = await client.DeleteAsync($"https://localhost:5001/api/supplies/{SupplyData.id}");
+                var response = await client.DeleteAsync($"{ApiBaseUrl}/supplies/{SupplyData.id}");
                 if (response.IsSuccessStatusCode)
                 {
                     MessageBox.Show("Danie zostało usunięte.");

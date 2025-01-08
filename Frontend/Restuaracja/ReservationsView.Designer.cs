@@ -61,6 +61,7 @@
             Controls.Add(label1);
             Name = "ReservationsView";
             Size = new Size(800, 450);
+            Load += ReservationsView_Load;
             ResumeLayout(false);
             PerformLayout();
         }

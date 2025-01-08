@@ -22,13 +22,13 @@ public class CreateTableCommandHandler : IRequestHandler<CreateTableCommand, Act
     {
         var table = new RestaurantTable
         {
-           
-            SeatNumber = request.TableRequest.SeatNumber,
+            SeatCount = request.TableRequest.SeatCount,
             Description = request.TableRequest.Description,
-            IsReservate = false
+            TableNumber = request.TableRequest.TableNumber,
+            HasReservation = false
         };
 
-        _context.RestaurantTable.Add(table);
+        _context.RestaurantTables.Add(table);
         await _context.SaveChangesAsync(cancellationToken);
         return new OkObjectResult(table);
     }

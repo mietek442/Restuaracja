@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Restuaracja.GlobalConfig;
 
 namespace Restuaracja.Orders
 {
@@ -18,7 +19,7 @@ namespace Restuaracja.Orders
         {
             using (var client = new System.Net.Http.HttpClient())
             {
-                var response = await client.GetAsync("https://localhost:5001/api/orders");
+                var response = await client.GetAsync($"{ApiBaseUrl}/orders");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();

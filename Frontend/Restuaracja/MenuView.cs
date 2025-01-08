@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using Restuaracja.Components;
 using Restuaracja.Menu;
 using static Restuaracja.MenuView;
+using static Restuaracja.GlobalConfig;
 
 namespace Restuaracja
 {
@@ -42,7 +43,7 @@ namespace Restuaracja
         {
             using (var client = new System.Net.Http.HttpClient())
             {
-                var response = await client.GetAsync("https://localhost:5001/api/dishes");
+                var response = await client.GetAsync($"{ApiBaseUrl}/dishes");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();

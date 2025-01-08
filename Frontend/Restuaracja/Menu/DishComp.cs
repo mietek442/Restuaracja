@@ -11,6 +11,7 @@ using System;
 using System.Windows.Forms;
 using static Restuaracja.MenuView;
 using Restuaracja.Menu;
+using static Restuaracja.GlobalConfig;
 
 namespace Restuaracja.Components
 {
@@ -62,7 +63,7 @@ namespace Restuaracja.Components
         private async void button2_Click(object sender, EventArgs e)
         {
             using (var client = new HttpClient()) {
-                var response =  await client.DeleteAsync($"https://localhost:5001/api/dishes/{DishData.id}");
+                var response =  await client.DeleteAsync($"{ApiBaseUrl}/dishes/{DishData.id}");
                 if (response.IsSuccessStatusCode)
                 {
                     MessageBox.Show("Danie zostało usunięte.");

@@ -11,8 +11,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Configuration;
-using System.Reflection.Metadata;
+
 namespace Restuaracja
 {
     public partial class OrdersView : UserControl
@@ -38,7 +37,7 @@ namespace Restuaracja
 
             using (var client = new System.Net.Http.HttpClient())
             {
-                var response = await client.GetAsync("https://localhost:5001/api/dishes");
+                var response = await client.GetAsync($"{ApiBaseUrl}/dishes");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();

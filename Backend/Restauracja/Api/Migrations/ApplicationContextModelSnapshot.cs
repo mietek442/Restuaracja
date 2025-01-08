@@ -131,15 +131,18 @@ namespace Api.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<bool>("IsReservate")
+                    b.Property<bool>("HasReservation")
                         .HasColumnType("boolean");
 
-                    b.Property<int>("SeatNumber")
+                    b.Property<int>("SeatCount")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("TableNumber")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
 
-                    b.ToTable("RestaurantTable");
+                    b.ToTable("RestaurantTables");
                 });
 
             modelBuilder.Entity("Api.Domain.Models.ResteurantUser", b =>
@@ -187,6 +190,32 @@ namespace Api.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Supplies");
+                });
+
+            modelBuilder.Entity("Api.Domain.Models.TableReservation", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("ClientName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("EndTime")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime>("StartTime")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<Guid>("TableId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TableId");
+
+                    b.ToTable("TableReservations");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -400,6 +429,17 @@ namespace Api.Migrations
                         .IsRequired();
 
                     b.Navigation("Dish");
+                });
+
+            modelBuilder.Entity("Api.Domain.Models.TableReservation", b =>
+                {
+                    b.HasOne("Api.Domain.Models.RestaurantTable", "Table")
+                        .WithMany()
+                        .HasForeignKey("TableId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Table");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

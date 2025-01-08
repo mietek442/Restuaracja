@@ -1,8 +1,10 @@
 ﻿using Api.Features.Common.Services.Storage;
 using Api.Features.Common.Services.UrlHelper;
+using Api.Features.Helpers.Validation;
 using Api.Infrastructure.DbContext;
 using Api.Infrastructure.Storage;
 using Azure.Storage.Blobs;
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
@@ -58,6 +60,12 @@ builder.Services.AddSingleton(x =>
     new BlobServiceClient(builder.Configuration.GetConnectionString("BlobStorage")));
 
 builder.Services.AddSingleton<IUrlHelpers, UrlHelpers>();
+
+builder.Services.AddControllers()
+    .AddFluentValidation(config =>
+    {
+        config.RegisterValidatorsFromAssemblyContaining<ReservationValidator>();
+    });
 
 var app = builder.Build();
 app.UseCors();

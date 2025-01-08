@@ -16,4 +16,5 @@ namespace Api.Features.Dishes.Queries.GetAllDishes
         public string ImgUrl { get; set; }
         public float? Size { get; set; }
     }
+
 }

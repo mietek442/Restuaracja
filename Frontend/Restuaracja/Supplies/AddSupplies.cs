@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Restuaracja.GlobalConfig;
 
 namespace Restuaracja.Supplies
 {
@@ -30,7 +31,7 @@ namespace Restuaracja.Supplies
             var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
             using (var client = new System.Net.Http.HttpClient())
             {
-                var response = await client.PostAsync("https://localhost:5001/api/supplies", content);
+                var response = await client.PostAsync($"{ApiBaseUrl}/supplies", content);
 
                 if (response.IsSuccessStatusCode)
                 {

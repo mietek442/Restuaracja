@@ -9,7 +9,8 @@ namespace Api.Infrastructure.DbContext
         DbSet<Order> Orders { get; set; }
         public DbSet<ResteurantUser> Users { get; set; }
         DbSet<OrderItem> OrderItems { get; set; }
-        public DbSet<RestaurantTable> RestaurantTable { get; set; }
+        public DbSet<RestaurantTable> RestaurantTables { get; set; }
+        public DbSet<TableReservation> TableReservations { get; set; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }

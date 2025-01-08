@@ -51,7 +51,7 @@
             // label1
             // 
             label1.Font = new Font("Segoe UI", 20F);
-            label1.Location = new Point(299, 11);
+            label1.Location = new Point(240, 3);
             label1.Name = "label1";
             label1.Size = new Size(300, 50);
             label1.TabIndex = 2;
@@ -77,6 +77,7 @@
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(623, 395);
             flowLayoutPanel1.TabIndex = 5;
+
             flowLayoutPanel1.AutoScroll = true;
             // 
             // Sprawdz
@@ -88,6 +89,7 @@
             Sprawdz.Text = "Zamow";
             Sprawdz.UseVisualStyleBackColor = true;
             Sprawdz.Click += Sprawdz_Click;
+
             // 
             // OrdersView
             // 
