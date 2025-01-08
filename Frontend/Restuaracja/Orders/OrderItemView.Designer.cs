@@ -40,42 +40,44 @@
             panel1.Controls.Add(labelDishId);
             panel1.Controls.Add(labelQuantity);
             panel1.Controls.Add(labelTotalPrice);
-            panel1.Location = new Point(3, 3);
+            panel1.Location = new Point(3, 4);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(242, 74);
+            panel1.Size = new Size(277, 99);
             panel1.TabIndex = 0;
             // 
             // labelDishId
             // 
-            labelDishId.Location = new Point(3, 10);
+            labelDishId.Location = new Point(3, 13);
             labelDishId.Name = "labelDishId";
-            labelDishId.Size = new Size(68, 15);
+            labelDishId.Size = new Size(271, 27);
             labelDishId.TabIndex = 0;
-            labelDishId.Text = "Dish Name:";
+            labelDishId.Text = "Dish name ";
             // 
             // labelQuantity
             // 
-            labelQuantity.Location = new Point(3, 30);
+            labelQuantity.Location = new Point(3, 40);
             labelQuantity.Name = "labelQuantity";
-            labelQuantity.Size = new Size(56, 15);
+            labelQuantity.Size = new Size(64, 20);
             labelQuantity.TabIndex = 1;
             labelQuantity.Text = "Quantity:";
             // 
             // labelTotalPrice
             // 
-            labelTotalPrice.Location = new Point(3, 50);
+            labelTotalPrice.Location = new Point(3, 67);
             labelTotalPrice.Name = "labelTotalPrice";
-            labelTotalPrice.Size = new Size(64, 15);
+            labelTotalPrice.Size = new Size(274, 32);
             labelTotalPrice.TabIndex = 2;
             labelTotalPrice.Text = "Total Price:";
             // 
             // OrderItemView
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panel1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "OrderItemView";
-            Size = new Size(251, 95);
+            Size = new Size(287, 127);
             Load += OrderItemView_Load;
             panel1.ResumeLayout(false);
             ResumeLayout(false);

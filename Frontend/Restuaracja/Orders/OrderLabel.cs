@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Restuaracja.Menu;
+using System;
 using System.Windows.Forms;
 
 namespace Restuaracja.Orders
@@ -16,8 +17,7 @@ namespace Restuaracja.Orders
         {
             if (OrderData != null)
             {
-                labelUpdatedAt.Text = $"ID Zamówienia: {OrderData.id}";
-                labelCreatedAt.Text = $"ID zamawiajacego: {OrderData.userId}";
+                labelCreatedAt.Text = $"ID Projektu: {OrderData.id}";
                 labelStatus.Text = $"Status: {OrderData.status}";
                 OrderPrice.Text = $"Cena Sumaryczna: {OrderData.price:C}";
             }
@@ -26,8 +26,6 @@ namespace Restuaracja.Orders
         private void button1_Click(object sender, EventArgs e)
         {
         }
-
-      
 
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -44,10 +42,15 @@ namespace Restuaracja.Orders
             }
         }
 
-
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ChangeOrderStatus edit = new ChangeOrderStatus { OrderID = OrderData.id };
+            edit.Show();
+           
         }
     }
 }

@@ -16,9 +16,9 @@ namespace Restuaracja.Orders
         {
             if (OrderItemData != null && OrderItemData.dish != null)
             {
-                labelDishId.Text = $"Danie: {OrderItemData.DishName}";
+                labelDishId.Text = $"Danie: {OrderItemData.dishName}";
                 labelQuantity.Text = $"Ilość: {OrderItemData.quantity}";
-                labelTotalPrice.Text = $"Cena Sumaryczna: {OrderItemData.totalPrice:zł}";
+                labelTotalPrice.Text = $"Cena Sumaryczna: {OrderItemData.totalPrice} zł";
             }
             else
             {

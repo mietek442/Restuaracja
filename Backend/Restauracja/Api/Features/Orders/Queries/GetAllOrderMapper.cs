@@ -13,9 +13,22 @@ namespace Api.Features.Orders.Queries
             {
                 Id = order.Id,
                 UserId = order.UserId,
-                OrderItems = order.OrderItems,
+                OrderItems = orderItems.Select(ToOrderItemResult).ToList(),
                 Status = order.Status.ToString(),
                 Price = orderItems.Sum(i=>i.TotalPrice),
+              
+            };
+        }
+        public static OrderItem ToOrderItemResult(OrderItem orderItem)
+        {
+            return new OrderItem
+            {
+                Id = orderItem.Id,
+                
+                Dish = orderItem.Dish,
+                DishName = orderItem.Dish.Name,
+                Quantity = orderItem.Quantity,
+                TotalPrice = orderItem.TotalPrice
             };
         }
     }

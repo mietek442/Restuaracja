@@ -47,13 +47,15 @@ namespace Api.Features.Orders.Commands.CreateOrder
             {
                 OrderId = order.Id,
                 DishId = itemRequest.DishId,
+                DishName = "s",
                 Quantity = itemRequest.Quantity,
-                TotalPrice = (float) Math.Round(itemRequest.DishPrice* itemRequest.Quantity,2)
+                TotalPrice = (float) Math.Round(itemRequest.DishPrice* itemRequest.Quantity,2),
+               
             }).ToList();
             
             await _context.OrderItems.AddRangeAsync(orderItems, cancellationToken);
             await _context.SaveChangesAsync(cancellationToken);
-            var mappedOrders = order.ToOrderResult(order.OrderItems);
+            var mappedOrders = order.ToCreateOrderResult(order.OrderItems);
             return new OkObjectResult(mappedOrders);
         }
 

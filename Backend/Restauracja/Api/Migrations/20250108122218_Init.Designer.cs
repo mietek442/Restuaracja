@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Api.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20250104192911_Init")]
+    [Migration("20250108122218_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -101,6 +101,10 @@ namespace Api.Migrations
 
                     b.Property<Guid>("DishId")
                         .HasColumnType("uuid");
+
+                    b.Property<string>("DishName")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<Guid>("OrderId")
                         .HasColumnType("uuid");

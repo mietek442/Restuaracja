@@ -2,9 +2,9 @@
 
 namespace Api.Features.Orders.Commands.CreateOrder
 {
-    public class CreateOrderMapper
+    public static class CreateOrderMapper
     {
-        public static CreateOrderResult ToCreateOrderResult(Order order, List<OrderItem> orderItems)
+        public static CreateOrderResult ToCreateOrderResult(this Order order, List<OrderItem> orderItems)
         {
             return new CreateOrderResult
             {

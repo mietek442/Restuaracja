@@ -31,25 +31,16 @@ namespace Restuaracja.Orders
 
                     foreach (var order in orders)
                     {
-                        var tempOrder = order;
-                        foreach (var orderItem in order.orderItems)
-                        {
-                            MessageBox.Show($"test: {orderItem.dish.name}");
-                            if (orderItem.dish != null && !string.IsNullOrEmpty(orderItem.dish.name))
-                            {
-                                orderItem.DishName = orderItem.dish.name;
-                            }
-                        }
-
+                      
                         var orderItemControl = new OrderLabel
                         {
-                            OrderData = tempOrder
+                            OrderData = order
                         };
 
                         flowLayoutPanel1.Controls.Add(orderItemControl);
                     }
 
-                    DisplayAllDishNames(orders);
+                    
                 }
                 else
                 {
@@ -58,24 +49,7 @@ namespace Restuaracja.Orders
             }
         }
 
-        private void DisplayAllDishNames(List<Order> orders)
-        {
-            List<string> dishNames = new List<string>();
-
-            foreach (var order in orders)
-            {
-                foreach (var orderItem in order.orderItems)
-                {
-                    if (orderItem.dish != null && !string.IsNullOrEmpty(orderItem.dish.name))
-                    {
-                        dishNames.Add(orderItem.dish.name);
-                    }
-                }
-            }
-
-            string allDishNames = string.Join(", ", dishNames);
-            MessageBox.Show($"Nazwy wszystkich dań: {allDishNames}");
-        }
+        
 
 
         private void button1_Click(object sender, EventArgs e)
@@ -100,8 +74,8 @@ namespace Restuaracja.Orders
         public Guid id { get; set; }
         public Guid orderId { get; set; }
         public Guid dishId { get; set; }
-        public string DishName { get; set; }
-        
+        public string dishName { get; set; }
+      
 
         public Dish dish { get; set; }
         public int quantity { get; set; }
