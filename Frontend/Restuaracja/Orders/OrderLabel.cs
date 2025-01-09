@@ -17,7 +17,7 @@ namespace Restuaracja.Orders
         {
             if (OrderData != null)
             {
-                labelCreatedAt.Text = $"ID Projektu: {OrderData.id}";
+                labelCreatedAt.Text = $"ID Zamówienia: {OrderData.id}";
                 labelStatus.Text = $"Status: {OrderData.status}";
                 OrderPrice.Text = $"Cena Sumaryczna: {OrderData.price:C}";
             }
@@ -49,7 +49,13 @@ namespace Restuaracja.Orders
         {
             ChangeOrderStatus edit = new ChangeOrderStatus { OrderID = OrderData.id };
             edit.Show();
-           
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            ChangeOrderStatus edit = new ChangeOrderStatus { OrderID = OrderData.id };
+            edit.Show();
         }
     }
 }

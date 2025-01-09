@@ -39,6 +39,20 @@
             panel1.Size = new Size(473, 70);
             panel1.TabIndex = 0;
             // 
+            // button2
+            // 
+            button2.BackColor = Color.FromArgb(2, 8, 29);
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Arial Narrow", 9.25F, FontStyle.Bold);
+            button2.ForeColor = Color.FromArgb(225, 187, 130);
+            button2.Location = new Point(105, 44);
+            button2.Name = "button2";
+            button2.Size = new Size(113, 23);
+            button2.TabIndex = 4;
+            button2.Text = "Zmień Status";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click_1;
+            // 
             // OrderPrice
             // 
             OrderPrice.AutoSize = true;
