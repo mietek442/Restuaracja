@@ -1,0 +1,149 @@
+﻿namespace Restuaracja
+{
+    partial class MainMenu
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
+            button4 = new Button();
+            flowLayoutPanel2 = new FlowLayoutPanel();
+            button5 = new Button();
+            button6 = new Button();
+            flowLayoutPanel1.SuspendLayout();
+            SuspendLayout();
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Controls.Add(button1);
+            flowLayoutPanel1.Controls.Add(button2);
+            flowLayoutPanel1.Controls.Add(button3);
+            flowLayoutPanel1.Controls.Add(button4);
+            flowLayoutPanel1.Location = new Point(263, 89);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(310, 411);
+            flowLayoutPanel1.TabIndex = 0;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(3, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(306, 93);
+            button1.TabIndex = 0;
+            button1.Text = "Rezerwacje";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(3, 79);
+            button2.Name = "button2";
+            button2.Size = new Size(306, 93);
+            button2.TabIndex = 1;
+            button2.Text = "Zaopatrzenie";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(3, 155);
+            button3.Name = "button3";
+            button3.Size = new Size(306, 93);
+            button3.TabIndex = 2;
+            button3.Text = "Menu";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(3, 231);
+            button4.Name = "button4";
+            button4.Size = new Size(306, 93);
+            button4.TabIndex = 3;
+            button4.Text = "Zamówienia";
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
+            // 
+            // flowLayoutPanel2
+            // 
+            flowLayoutPanel2.Controls.Add(button5);
+            flowLayoutPanel2.Controls.Add(button6);
+            flowLayoutPanel2.Location = new Point(443, 0);
+            flowLayoutPanel2.Name = "flowLayoutPanel2";
+            flowLayoutPanel2.Size = new Size(350, 50);
+            flowLayoutPanel2.TabIndex = 1;
+            // 
+            // button5
+            // 
+            button5.Location = new Point(3, 3);
+            button5.Name = "button5";
+            button5.Size = new Size(183, 53);
+            button5.TabIndex = 0;
+            button5.Text = "Zaloguj";
+            button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click;
+            // 
+            // button6
+            // 
+            button6.Location = new Point(169, 3);
+            button6.Name = "button6";
+            button6.Size = new Size(160, 40);
+            button6.TabIndex = 1;
+            button6.Text = "Wyloguj";
+            button6.UseVisualStyleBackColor = true;
+            button6.Visible = false;
+            button6.Click += button6_Click;
+            // 
+            // MainMenu
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(flowLayoutPanel2);
+            Controls.Add(flowLayoutPanel1);
+            Margin = new Padding(3, 4, 3, 4);
+            Name = "MainMenu";
+            Size = new Size(914, 600);
+            Load += MainMenu_Load;
+            flowLayoutPanel1.ResumeLayout(false);
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        #endregion
+
+        private FlowLayoutPanel flowLayoutPanel1;
+        private Button button1;
+        private Button button2;
+        private Button button3;
+        private Button button4;
+        private FlowLayoutPanel flowLayoutPanel2;
+        private Button button5;
+        private Button button6;
+    }
+}
