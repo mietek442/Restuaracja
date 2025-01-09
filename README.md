@@ -57,7 +57,7 @@
   </div>
   
   <div style="display: flex; align-items: center;">
-    <img src="./ReadmePictures/Reservation.png" alt="Reservation" width="1600" height="500" style="margin-right: 20px;">
+    <img src="./ReadmePictures/Reservation.png" alt="Reservation" width="1800" height="500" style="margin-right: 20px;">
     <div style="font-size: 30px; color: black; font-family: 'Arial', sans-serif;">
       <strong>Reservation</strong>: This view allows you to manage table reservations.
     </div>
