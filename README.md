@@ -24,14 +24,16 @@
   <div style="display: flex; align-items: center;">
     <img src="./ReadmePictures/OrdersView.png" alt="Orders View" width="600" height="500" style="margin-right: 20px;">
     <div style="font-size: 30px; color: black; font-family: 'Arial', sans-serif;">
-      <strong>Orders View</strong>: This view shows the list of customer orders and their statuses.
+   <strong>Restaurant Order List</strong>: Here you can view the detailed list of orders for the restaurant. This view displays the list of customer orders along with their current statuses.
+
     </div>
   </div>
 
   <div style="display: flex; align-items: center;">
     <img src="./ReadmePictures/Resteurant OrderList.png" alt="Restaurant Order List" width="600" height="500" style="margin-right: 20px;">
     <div style="font-size: 30px; color: black; font-family: 'Arial', sans-serif;">
-      <strong>Restaurant Order List</strong>: Here you can see the detailed list of orders for the restaurant.
+<strong>Restaurant Order List</strong>: Here you can view the detailed list of orders for the restaurant. This view displays the list of customer orders along with their current statuses.
+
     </div>
   </div>
 
