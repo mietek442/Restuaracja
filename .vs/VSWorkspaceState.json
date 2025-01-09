@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Backend",
+    "\\Backend\\Restauracja",
+    "\\Frontend",
+    "\\Frontend\\Restuaracja",
+    "\\Frontend\\Restuaracja\\Menu",
+    "\\Frontend\\Restuaracja\\Reservations"
+  ],
+  "SelectedNode": "\\Frontend\\Restuaracja\\Reservations\\AddReservationForm.cs",
+  "PreviewInSolutionExplorer": false
+}
