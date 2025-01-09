@@ -1,7 +1,7 @@
 <div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
 
   <div style="display: flex; align-items: center;">
-    <img src="./ReadmePictures/LoginView.png" alt="Logi View" width="600" height="500" style="margin-right: 20px;">
+    <img src="./ReadmePictures/LoginPictures.png" alt="Logi View" width="600" height="500" style="margin-right: 20px;">
     <div style="font-size: 30px; color: black; font-family: 'Arial', sans-serif;">
       <strong>Logi View</strong>: This view shows the logging interface, where you can monitor and analyze logs.
     </div>
