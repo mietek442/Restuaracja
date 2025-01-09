@@ -50,7 +50,7 @@
   </div>
   
   <div style="display: flex; align-items: center;">
-    <img src="./ReadmePictures/addSupplies.png" alt="Add Supplies" width="600" height="500" style="margin-right: 20px;">
+    <img src="./ReadmePictures/addSuppiles.png" alt="Add Supplies" width="600" height="500" style="margin-right: 20px;">
     <div style="font-size: 30px; color: black; font-family: 'Arial', sans-serif;">
       <strong>Add Supplies</strong>: Here you can add new supplies to the inventory.
     </div>
