@@ -83,7 +83,7 @@ Bildowanie dockera:
 
 
 
-#!opcjonalne korki!
+# ! opcjonalne kroki !
 do których musimy mieć docker hub. Wchodzimy na strone  docker hub i tworzymy nowe repozytorium, ja utworzyłem  mietek442/restauracja
 Można utworzyć za darmo 1 prytwatne i reszta niestety publicznych nawet nie wiem ile 
 
@@ -101,7 +101,7 @@ PULL  dockera:
 ```
 - chyba da się na logike  zrozumieć co tu sie dzieje  😎 
 
-
+# ! Uruchomienie dockera to akurat ważne  !
 
 Uruchomienie dockera:
 ```docker command
@@ -115,7 +115,7 @@ docker run -d -p 8808:8080 c429c59dae79
 -   c429c59dae79    id obrazu  🥴 
 
 
-#! zawansowane techniki dockera no na razie to warto sie dwoeidzieć co to docker ale mamy:
+# ! zawansowane techniki dockera no na razie to warto sie dwoeidzieć co to docker ale mamy:
 
 ```docker command 
 docker run --rm
