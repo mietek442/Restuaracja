@@ -83,7 +83,7 @@ Bildowanie dockera:
 
 
 
-!opcjonalne korki!
+#!opcjonalne korki!
 do których musimy mieć docker hub. Wchodzimy na strone  docker hub i tworzymy nowe repozytorium, ja utworzyłem  mietek442/restauracja
 Można utworzyć za darmo 1 prytwatne i reszta niestety publicznych nawet nie wiem ile 
 
@@ -115,9 +115,23 @@ docker run -d -p 8808:8080 c429c59dae79
 -   c429c59dae79    id obrazu  🥴 
 
 
-! zawansowane techniki dockera no na razie to warto sie dwoeidzieć co to docker ale mamy:
+#! zawansowane techniki dockera no na razie to warto sie dwoeidzieć co to docker ale mamy:
 
-```docker command Uruchomienie dockera z ograniczeniem pamieci i procestora:
+```docker command 
+docker run --rm
+```
+-   służy do  kontener zostanie automatycznie usunięty po zakończeniu jego działania. 🥴
+
+
+```docker command 
+docker run --read-only my_image
+```
+-   no jest read only i jak ci jakiś jełop wejdzie na twojego ukochanego dockera to nie bedzie mógł zbytnio nic tam edytować w tym obrazie no i może być to spoko na produkcji już bo zmniejsza ryzyko zmian 🥴
+
+
+
+Uruchomienie dockera z ograniczeniem pamieci i procestora:
+```docker command 
 docker run --memory="150m"   --cpus="0.2"
 ```
 -   --memory="150m"  - tylko 150mg pamieci ogranicza🥴
@@ -125,4 +139,8 @@ docker run --memory="150m"   --cpus="0.2"
 
 
 #krótko o DockerFile:
-USER app używanie usera zwiekrsza bezpieczeństwo, można też takiego stworzonego usera 
+
+```docker file command 
+USER app 
+```
+USER app  w 2 linijce używanie usera zwiekrsza bezpieczeństwo, można też takiego stworzonego usera ograniczyć i nie bedzie mógł zrobić szkód jak root 
