@@ -3,6 +3,8 @@
 
 Created with <a href="https://github.com/Dawideg">@Dawideg</a>
 
+[Przejdź do dokumentacji aplikacji](https://backendrestauracja.jakubchrzastek.pl/swagger/index.html)
+
 # Restaurant API (v1)
 
 Welcome to the Restaurant API! This project serves as a comprehensive backend system for restaurant management, built with the latest and most reliable technologies.
