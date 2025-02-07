@@ -161,4 +161,4 @@ docker run --memory="150m"   --cpus="0.2"
 USER app 
 ```
 USER app  w 2 linijce używanie usera zwiekrsza bezpieczeństwo, można też takiego stworzonego usera ograniczyć i nie bedzie mógł zrobić szkód jak root 
-[mało info? - poczytaj o bezpieczeństwie u tego giga chad chłopa]([https://backendrestauracja.jakubchrzastek.pl/swagger/index.html](https://cdn.sekurak.pl/ksiazka3/wdbit2-docker-rozdzial.pdf))
+[mało info? - poczytaj o bezpieczeństwie u tego giga chłopa]([https://backendrestauracja.jakubchrzastek.pl/swagger/index.html](https://cdn.sekurak.pl/ksiazka3/wdbit2-docker-rozdzial.pdf))
