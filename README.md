@@ -103,6 +103,13 @@ PULL  dockera:
 
 # ! Uruchomienie dockera to akurat ważne  !
 
+pokazanie listy obrazów:
+```docker command
+docker images
+```
+- jak się zbuduje to pokazuje obraz, ale ten pobrany z repozytorium też pokaże
+
+
 Uruchomienie dockera:
 ```docker command
 docker run -d -p 8808:8080 c429c59dae79
@@ -113,6 +120,16 @@ docker run -d -p 8808:8080 c429c59dae79
 -   8808 - port na którym go zobaczymy na komputerze 🥴
 -   8080 port na dockerze na którym sie odpali obraz 🥴
 -   c429c59dae79    id obrazu  🥴 
+
+
+
+pokazanie listy uruchomionych kontenerów:
+```docker command
+docker ps
+```
+- pokazuje id uruchomionego obrazu, nazwa_obrazu, status(start) 
+
+
 
 
 # ! zawansowane techniki dockera no na razie to warto sie dwoeidzieć co to docker ale mamy:
