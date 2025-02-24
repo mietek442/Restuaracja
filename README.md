@@ -169,7 +169,7 @@ USER app  w 2 linijce używanie usera zwiekrsza bezpieczeństwo, można też tak
 
 
 
-# Problemy Z Dockerem
+# Problemy Z Dockerem ⚠️🔧⚠️
 ## Program does not contain a static 'Main' method suitable for an entry point [/src/Api/Api.csproj] 
 - problem głownie z ścieżkami, ale tak co może być przyczyną po za problemów ze ściażką to problem ze złą kolejnoscią Copy i Workdir 
 
