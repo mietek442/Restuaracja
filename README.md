@@ -165,3 +165,28 @@ USER app  w 2 linijce używanie usera zwiekrsza bezpieczeństwo, można też tak
 
 
 [mało info? - poczytaj o bezpieczeństwie u tego giga chłopa](https://cdn.sekurak.pl/ksiazka3/wdbit2-docker-rozdzial.pdf)
+
+
+
+
+# Problemy Z Dockerem
+## Program does not contain a static 'Main' method suitable for an entry point [/src/Api/Api.csproj] 
+- problem głownie z ścieżkami, ale tak co może być przyczyną po za problemów ze ściażką to problem ze złą kolejnoscią Copy i Workdir 
+
+Poprawny Kod ✅: 
+```docker file command 
+WORKDIR "/src/Api"
+COPY . .
+RUN dotnet build "./Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
+```
+Błedny Kod ❌:  
+```docker file command
+COPY . .
+WORKDIR "/src/Api"
+
+
+RUN dotnet build "./Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
+```
+
+
+
